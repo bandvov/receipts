@@ -12,6 +12,7 @@ import {
   Button,
 } from "@mui/material";
 import { Meal } from "../App";
+import { Link } from "react-router-dom";
 
 const MealsList: React.FC<{addToFavorites:(meal: Meal)=> void}> = ({addToFavorites }) => {
   const [page, setPage] = useState(1);
@@ -42,12 +43,14 @@ const MealsList: React.FC<{addToFavorites:(meal: Meal)=> void}> = ({addToFavorit
         {currentMeals.map((meal: any) => (
           <Grid item xs={12} sm={6} md={4} key={meal.idMeal}>
             <Card sx={{ maxWidth: 345 }}>
+            <Link to={meal.idMeal}>            
               <CardMedia
                 component="img"
                 height="200"
                 image={meal.strMealThumb}
                 alt={meal.strMeal}
-              />
+                />
+                </Link>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
                   {meal.strMeal}

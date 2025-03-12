@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import MealsList from "./components/MealsList";
 import Favorites from "./components/Favorites";
 import { Box, Button } from "@mui/material";
+import MealDetails from "./components/MealDetails";
 
 export interface Meal {
   idMeal: string;
@@ -41,6 +42,7 @@ const App: React.FC = () => {
         </Box>
         <Routes>
           <Route path="/" element={<MealsList addToFavorites={addToFavorites} />} />
+          <Route path="/:id" element={<MealDetails/>} />
           <Route path="/favorites" element={<Favorites favorites={favorites} removeFromFavorites={removeFromFavorites} />} />
         </Routes>
       </Router>
